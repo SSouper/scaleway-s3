@@ -167,7 +167,7 @@ S3.prototype.getList = function (params) {
     return this.signAndSendRequest('GET', params.bucket, params.path);
 }
 S3.prototype.putObject = function (params) {
-//    this.headers = {...this.headers, ...{'x-amz-acl': 'public-read', 'x-amz-storage-class': 'GLACIER'}};
+    this.headers = {...this.headers, ...{'x-amz-acl': 'public-read'}};
     return this.signAndSendRequest('PUT', params.bucket, params.key, params.body);
 }
 
