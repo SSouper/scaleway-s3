@@ -21,7 +21,12 @@ S3.prototype.signAndSendRequest = function (method, bucket, path, body) {
 
     let host = (this.domain !== 'digitaloceanspaces.com')
             ? `${bucket}.${this.service}.${this.region}.${this.domain}`
-            : `${bucket}.${this.region}.${this.domain}`
+            : `${bucket}.${this.region}.${this.domain}`;
+   
+    if(this.domain == "contabostorage.com") {
+       host = this.region;
+    }
+ 
     if (!bucket) {
         host = host.substring(1);
     }
